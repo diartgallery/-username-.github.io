@@ -46,6 +46,24 @@
             <!-- Add more art items as needed -->
         </div>
     </section>
+    <div class="container">
+    <div class="spinning-wheel">
+        <!-- Art styles options for the spinning wheel -->
+        <div class="wheel-segment" data-style="Style 1">Style 1</div>
+        <div class="wheel-segment" data-style="Style 2">Style 2</div>
+        <div class="wheel-segment" data-style="Style 3">Style 3</div>
+        <div class="wheel-segment" data-style="Style 4">Style 4</div>
+        <div class="wheel-segment" data-style="Style 5">Style 5</div>
+    </div>
+</div>
+
+<div id="style-popup" class="popup hidden">
+    <div class="popup-content">
+        <h3 id="style-title"></h3>
+        <p id="style-details"></p>
+        <button id="close-popup">Close</button>
+    </div>
+</div>
 
     <section id="about" class="about">
         <h2>About Di Art Gallery</h2>
@@ -56,15 +74,7 @@
         <h2>Get in Touch</h2>
         <p>Contact us at <a href="mailto:info@diartgallery.com">info@diartgallery.com</a> for inquiries, collaborations, and commissions.</p>
     </section>
-    <section id="art-wheel">
-    <div class="wheel-container">
-        <div class="wheel-item" onclick="showPopup('style1')">Style 1</div>
-        <div class="wheel-item" onclick="showPopup('style2')">Style 2</div>
-        <div class="wheel-item" onclick="showPopup('style3')">Style 3</div>
-        <div class="wheel-item" onclick="showPopup('style4')">Style 4</div>
-        <div class="wheel-item" onclick="showPopup('style5')">Style 5</div>
-    </div>
-    </section>
+    
     
     <footer>
         <p>&copy; 2024 Di Art Gallery. All rights reserved.</p>
