@@ -1,3 +1,4 @@
+// Add click event listeners to each wheel segment
 document.querySelectorAll('.wheel-segment').forEach(segment => {
     segment.addEventListener('click', function() {
         const selectedStyle = this.getAttribute('data-style');
@@ -5,26 +6,33 @@ document.querySelectorAll('.wheel-segment').forEach(segment => {
     });
 });
 
+// Function to show the popup and blur the rest of the page
 function showPopup(style) {
     const popup = document.getElementById('style-popup');
     const styleTitle = document.getElementById('style-title');
     const styleDetails = document.getElementById('style-details');
 
-    // Update popup content with selected style
+    // Update popup content with the selected style
     styleTitle.innerText = style;
     styleDetails.innerText = `Details for ${style}: Price, Size, Shading, etc.`;
 
-    // Show the popup
+    // Show the popup by removing the 'hidden' class
     popup.classList.remove('hidden');
 
-    // Blur the rest of the page
-    document.querySelector('.container').style.filter = 'blur(5px)';
+    // Blur the rest of the page except the spinning wheel
+    document.querySelectorAll('body > *:not(#style-popup):not(.spinning-wheel)').forEach(element => {
+        element.style.filter = 'blur(5px)';
+    });
 }
 
-// Close the popup and restore focus
+// Close the popup and remove the blur from the rest of the page
 document.getElementById('close-popup').addEventListener('click', function() {
     const popup = document.getElementById('style-popup');
     popup.classList.add('hidden');
-    document.querySelector('.container').style.filter = 'none';
+
+    // Remove blur effect from the rest of the page
+    document.querySelectorAll('body > *').forEach(element => {
+        element.style.filter = 'none';
+    });
 });
 
