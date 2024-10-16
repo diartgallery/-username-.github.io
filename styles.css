@@ -140,3 +140,45 @@ footer {
     text-align: center;
     font-size: 14px;
 }
+#art-wheel {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.wheel-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    transform: rotate(-90deg);
+}
+
+.wheel-item {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.wheel-item:hover {
+    transform: scale(1.2);
+    background-color: #444;
+}
+
+/* De-focused styles */
+.defocused {
+    opacity: 0.2;
+}
