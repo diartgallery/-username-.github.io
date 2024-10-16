@@ -12,11 +12,20 @@ function showPopup(style) {
     const styleTitle = document.getElementById('style-title');
     const styleDetails = document.getElementById('style-details');
 
-    // Update popup content with the selected style
-    styleTitle.innerText = style;
-    styleDetails.innerText = `Details for ${style}: Price, Size, Shading, etc.`;
+    // Style details mapping
+    const styleInfo = {
+        'Style 1': 'This style features vibrant colors and abstract forms, perfect for modern spaces.',
+        'Style 2': 'Characterized by its calm tones and serene landscapes, this style brings tranquility.',
+        'Style 3': 'A fusion of traditional and contemporary elements, suitable for diverse environments.',
+        'Style 4': 'Emphasizes texture and depth, making each piece a tactile experience.',
+        'Style 5': 'Bold and dynamic, this style captures the energy of urban life.'
+    };
 
-    // Show the popup by removing the 'hidden' class
+    // Update popup content with selected style
+    styleTitle.innerText = style;
+    styleDetails.innerText = styleInfo[style] || 'No details available for this style.';
+
+    // Show the popup
     popup.classList.remove('hidden');
 
     // Blur the rest of the page except the spinning wheel
@@ -25,7 +34,7 @@ function showPopup(style) {
     });
 }
 
-// Close the popup and remove the blur from the rest of the page
+// Close the popup and restore focus when the close button is clicked
 document.getElementById('close-popup').addEventListener('click', function() {
     const popup = document.getElementById('style-popup');
     popup.classList.add('hidden');
@@ -36,3 +45,12 @@ document.getElementById('close-popup').addEventListener('click', function() {
     });
 });
 
+// Close the popup when clicking outside of the popup content
+document.getElementById('style-popup').addEventListener('click', function(event) {
+    if (event.target === this) {
+        this.classList.add('hidden');
+        document.querySelectorAll('body > *').forEach(element => {
+            element.style.filter = 'none';
+        });
+    }
+});
