@@ -89,9 +89,8 @@ nav ul li a:hover {
 }
 
 .gallery-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
     gap: 40px;
 }
 
