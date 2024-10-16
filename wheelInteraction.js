@@ -21,4 +21,16 @@ function showPopup(style, element) {
     styleDetails.innerText = `Details for ${style}: Price, Size, Shading, etc.`;
 
     // Position the popup next to the hovered element
-    const rect = element.get
+    const rect = element.getBoundingClientRect();
+    popup.style.left = `${rect.right + 10}px`; // Position to the right of the element
+    popup.style.top = `${rect.top + window.scrollY}px`; // Align with the top of the element
+
+    // Show the popup
+    popup.classList.remove('hidden');
+}
+
+// Function to hide the popup
+function hidePopup() {
+    const popup = document.getElementById('style-popup');
+    popup.classList.add('hidden');
+}
