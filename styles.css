@@ -5,11 +5,16 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for better user experience */
+}
+
 body {
     font-family: 'Helvetica Neue', sans-serif;
     color: #000;
     background-color: #fff;
     line-height: 1.8;
+    overflow-x: hidden; /* Avoid horizontal scroll */
 }
 
 /* Header Styling */
@@ -19,6 +24,7 @@ header {
     align-items: center;
     padding: 20px 40px;
     border-bottom: 1px solid #ccc;
+    background-color: #f8f8f8;
 }
 
 header h1 {
@@ -42,7 +48,6 @@ nav ul li a {
     font-size: 16px;
     color: #000;
     font-weight: 500;
-    letter-spacing: 1px;
     padding-bottom: 5px;
 }
 
@@ -52,24 +57,27 @@ nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-    height: 80vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f4f4f4;
+    background-image: url('hero-bg.jpg'); /* Add a captivating background image */
+    background-size: cover;
+    background-position: center;
     padding: 20px;
 }
 
 .hero-content {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 50px;
     border-radius: 10px;
+    max-width: 700px;
 }
 
 .hero-content h2 {
-    font-size: 36px;
-    font-weight: 400;
+    font-size: 42px;
+    font-weight: 500;
     color: #000;
     letter-spacing: 1px;
     line-height: 1.5;
@@ -82,7 +90,7 @@ nav ul li a:hover {
 }
 
 .gallery h2 {
-    font-size: 28px;
+    font-size: 36px;
     margin-bottom: 40px;
     font-weight: 500;
     letter-spacing: 2px;
@@ -90,12 +98,11 @@ nav ul li a:hover {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
 }
 
 .art-item {
-    width: 300px;
     text-align: center;
 }
 
@@ -116,72 +123,34 @@ nav ul li a:hover {
     color: #000;
 }
 
-/* About and Contact Section */
-.about, .contact {
-    padding: 60px 40px;
+/* Spinning Wheel Section */
+.wheel {
+    padding: 80px 40px;
     text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.about h2, .contact h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.about p, .contact p {
-    font-size: 18px;
-    font-weight: 300;
-    color: #444;
-    line-height: 1.6;
-}
-
-/* Footer */
-footer {
-    padding: 20px 0;
-    background-color: #000;
-    color: #fff;
-    text-align: center;
-    font-size: 14px;
-}
-
-/* Spinning Wheel */
-.container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100vh;
 }
 
 .spinning-wheel {
-    position: fixed;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
     display: flex;
-    flex-direction: column;
-    border-radius: 50%;
-    background-color: #f0f0f0;
-    padding: 20px;
-    width: 200px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .wheel-segment {
-    margin: 10px;
     background-color: #333;
     color: white;
-    padding: 20px;
-    border-radius: 20px;
+    padding: 15px;
+    border-radius: 10px;
     cursor: pointer;
-    text-align: center;
     transition: all 0.3s ease;
+    width: 150px;
 }
 
 .wheel-segment:hover {
     background-color: #555;
 }
 
-/* Pop-up for Style Details */
+/* Popup for Style Details */
 .popup {
     position: fixed;
     top: 0;
@@ -214,13 +183,39 @@ button {
     cursor: pointer;
 }
 
+/* Contact Section */
+.contact {
+    padding: 60px 40px;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.contact h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 18px;
+    color: #444;
+}
+
+/* Footer */
+footer {
+    padding: 20px 0;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+}
+
 /* Media Queries for Mobile Responsiveness */
 @media (max-width: 768px) {
     .spinning-wheel {
-        width: 160px;
-        padding: 15px;
+        width: 100%;
     }
     .wheel-segment {
-        padding: 15px;
+        width: 100%;
+        padding: 10px;
     }
 }
